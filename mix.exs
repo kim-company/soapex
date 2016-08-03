@@ -19,13 +19,13 @@ defmodule Soapex.Mixfile do
      # mostly merged already
      {:erlsom,    github: "frobese/erlsom",    branch: "develop"},
      # this is detergent 0.3.0 extended to support ssl client certs
-     {:detergent, github: "frobese/detergent", branch: "develop"}]
+     {:detergent, github: "active-group/detergent", tag: "eco-v1"}]
   end
 
   defp package do
     [maintainers: ["Christian Zuckschwerdt"],
      licenses: ["MIT"],
-     links: %{github: "https://github.com/zuckschwerdt/soapex"},
+     links: %{github: "https://github.com/active-group/soapex"},
      files: ~w(lib LICENSE mix.exs README.md)]
   end
 end
