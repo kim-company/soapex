@@ -5,9 +5,9 @@ defmodule Soapex.Mixfile do
     [app: :soapex,
      version: "0.1.0",
      elixir: "~> 1.2",
-     deps: deps,
+     deps: deps(),
      description: "Erlsom/Detergent wrapper for Elixir/Phoenix",
-     package: package]
+     package: package()]
   end
 
   def application do
