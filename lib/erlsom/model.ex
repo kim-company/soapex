@@ -21,27 +21,27 @@ defmodule Erlsom.Model do
   end
 
   # {:type, :"tns:ProjectType", :sequence, [els], [atts], :undefined, :undefined, 9, 1, 1, :undefined, :undefined}
-  defp to_record({:type, nm, _tp=:sequence, els, atts, anyAttr, nillable, nr, mn, mx, mxd, typeName}) do
+  defp to_record({:type, _nm, _tp=:sequence, els, atts, _anyAttr, _nillable, _nr, _mn, _mx, _mxd, _typeName}) do
     [anyAttribs: :undefined] ++
     Enum.map(atts, &to_record/1) ++
     Enum.map(els, &to_record/1)
   end
 
   # {:el, [alts], 1, 1, :undefined, 2},
-  defp to_record({:el, [alt], mn, mx, nillable, nr}) do
+  defp to_record({:el, [alt], _mn, _mx, _nillable, _nr}) do
     to_record(alt)
   end
-  defp to_record({:el, [_|_]=alts, mn, mx, nillable, nr}) do
+  defp to_record({:el, [_|_] = _alts, _mn, _mx, _nillable, _nr}) do
     {:choice, :undefined}
   end
 
   # [{:alt, :"tns:projectCode", {:"#PCDATA", :char}, [], 1, 1, true, :undefined}],
-  defp to_record({:alt, tag, tp, nxt, mn, mx, rl, anyInfo}) do
+  defp to_record({:alt, tag, _tp, _nxt, _mn, _mx, _rl, _anyInfo}) do
     {tag, :undefined}
   end
 
   # {:att, :projectID, 1, true, :char}
-  defp to_record({:att, nm, nr, opt, tp}) do
+  defp to_record({:att, nm, _nr, _opt, _tp}) do
     {nm, :undefined}
   end
 end

@@ -42,7 +42,7 @@ defmodule Erlsom.Records do
     wsdl_file = Map.get(opts, :wsdl_file)
     prefix = case Map.get(opts, :prefix) do
       nil -> :undefined
-      string -> to_char_list(string)
+      string -> to_charlist(string)
     end
 
     cond do
@@ -53,10 +53,10 @@ defmodule Erlsom.Records do
         :detergent.initModelFile(config)
         |> wsdl(:model)
       wsdl_file ->
-        :detergent.initModel(to_char_list(wsdl_file), prefix)
+        :detergent.initModel(to_charlist(wsdl_file), prefix)
         |> wsdl(:model)
       xsd_file ->
-        {:ok, model} = :erlsom.compile_xsd_file(to_char_list(xsd_file), prefix: prefix)
+        {:ok, model} = :erlsom.compile_xsd_file(to_charlist(xsd_file), prefix: prefix)
         model
       true ->
         raise ArgumentError, "need wsdl_file or xsd_file option"

@@ -19,7 +19,7 @@ defmodule Soapex.Plugs.Soap do
   def init(opts) do
     opts = Enum.into(opts, %{})
     prefix = Map.get(opts, :prefix, "p")
-    :detergent.initModel(to_char_list(opts.wsdl_file), to_char_list(prefix))
+    :detergent.initModel(to_charlist(opts.wsdl_file), to_charlist(prefix))
     |> wsdl
     |> Enum.into(%{})
     # TODO: write a hrl, read records for later
@@ -27,7 +27,7 @@ defmodule Soapex.Plugs.Soap do
 
   @doc false
   def call(%Conn{} = conn, %{model: model}) do
-    header = conn
+    _header = conn
       |> Conn.get_req_header("content-type")
 
     {:ok, body, conn} = conn |> Conn.read_body()
@@ -54,7 +54,7 @@ defmodule Soapex.Plugs.Soap do
   defp client_fault(conn, model, message) do
     fault = soapFault(
       faultcode: {:qname, 'http://schemas.xmlsoap.org/soap/envelope/', 'Client', 'soap', ''},
-      faultstring: to_char_list(message))
+      faultstring: to_charlist(message))
 
     envelope = soapEnvelope(Header: soapHeader(),
                             Body: soapBody(choice: [fault]))
