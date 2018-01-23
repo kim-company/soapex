@@ -86,7 +86,7 @@ defmodule Soapex.SoapController do
         end
         soap_Fault(
           faultcode: {:qname, 'http://schemas.xmlsoap.org/soap/envelope/', 'Client', 'soap', ''},
-          faultstring: to_char_list(faultstring),
+          faultstring: to_charlist(faultstring),
           detail: detail)
       end
     end
