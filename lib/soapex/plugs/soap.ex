@@ -48,9 +48,8 @@ defmodule Soapex.Plugs.Soap do
   @doc false
   def call(%Conn{} = conn, %{model: model}) do
     _header = Conn.get_req_header(conn, "content-type")
-    {:ok, body, conn} = Conn.read_body(conn)
 
-    case :erlsom.scan(body, model) do
+    case :erlsom.scan(conn.assigns.raw_body, model) do
       {:ok, result, _rest} ->
         soap_body = soapEnvelope(result, :Body)
 
