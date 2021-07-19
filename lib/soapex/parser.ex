@@ -9,6 +9,7 @@ defmodule Soapex.Parser do
   @impl true
   def parse(conn, _, subtype, _headers, {{mod, fun, args}, opts}) do
     if subtype == "xml" or String.ends_with?(subtype, "+xml") do
+      opts = Keyword.update!(opts, :length, &(ceil((&1 + 500) / 3) * 4))
       apply(mod, fun, [conn, opts | args]) |> handle_body()
     else
       {:next, conn}
