@@ -1,5 +1,5 @@
 %{
-  "detergent": {:git, "https://github.com/active-group/detergent.git", "e507f915ab5a5f04e59e9fc76f5432ef50d6bf16", [tag: "eco-v3"]},
+  "detergent": {:git, "https://github.com/awlexus/detergent.git", "6769d4a6789dc7cd2288b2e805eee8a80a374385", [branch: "develop"]},
   "erlsom": {:git, "https://github.com/willemdj/erlsom.git", "871c5387a6d36039dd2fa8319b243343dd64ecf7", []},
   "plug": {:hex, :plug, "1.1.6", "8927e4028433fcb859e000b9389ee9c37c80eb28378eeeea31b0273350bf668b", [:mix], [{:cowboy, "~> 1.0", [hex: :cowboy, repo: "hexpm", optional: true]}], "hexpm", "b023b28e64b7b1020829fc3afc9c95f9f134ce705da2d06da107e3cfa45cf9a4"},
 }

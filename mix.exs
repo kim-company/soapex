@@ -22,7 +22,7 @@ defmodule Soapex.Mixfile do
       # mostly merged already
       {:erlsom, github: "willemdj/erlsom"},
       # this is detergent 0.3.0 extended to support ssl client certs
-      {:detergent, github: "active-group/detergent", tag: "eco-v3"}
+      {:detergent, github: "awlexus/detergent", branch: "develop"}
     ]
   end
 
